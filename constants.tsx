@@ -16,27 +16,27 @@ export const RESUME_URL = 'https://drive.google.com/uc?export=download&id=1i25_Y
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'TCMS (Pos Tolling)',
+    title: 'POS Tolling',
     description: 'Android app built with Kotlin, Flutter, and Method Channel for robust toll collection systems.',
     tech: ['Flutter', 'Kotlin', 'Dart', 'Method Channel'],
-    imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800',
+    imageUrl: 'https://ecdn.dhakatribune.net/contents/cache/images/1100x618x1/uploads/dten/2019/10/toll-system-1571424640836.jpg',
     githubLink: 'https://github.com/Ashik116/Pos-Toll',
   },
   {
     id: '2',
     title: 'RHD TOLL',
-    description: 'Toll Reporting application converted from web to APK for real-time monitoring of roads and highways.',
+    description: 'Toll Reporting application for real-time monitoring of roads and highways. Features complex data visualization and reporting.',
     tech: ['Flutter', 'Dart', 'APK Conversion'],
-    imageUrl: 'https://images.unsplash.com/photo-1590601448391-6863970632d4?auto=format&fit=crop&q=80&w=800',
+    imageUrl: 'https://images.unsplash.com/photo-1590601448391-6863970632d4?auto=format&fit=crop&q=80&w=1200',
     githubLink: 'https://play.google.com/store/apps/details?id=com.rhdra.tcms&hl=en'
   },
   {
     id: '3',
-    title: 'Regnum KPI',
-    description: 'Android application for KPI tracking and management using Flutter, Dart, and Provider state management.',
-    tech: ['Flutter', 'Provider', 'API Integration'],
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
-    githubLink: 'https://github.com/Ashik116/Regnum-KPI',
+    title: 'MRT-Ticket',
+    description: 'A Flutter-based mobile application for fast and reliable metro ticketing, featuring RFID/NFC integration, dynamic fare calculation, and thermal ticket printing.',
+    tech: ['Flutter', 'GETx', 'API Integration'],
+    imageUrl: 'https://imgs.search.brave.com/2i_W1ziyjCET_WxA1uQH0fGA4l3B7t_X9Dcm4B8GeKw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ibG9n/Z2VyLmdvb2dsZXVz/ZXJjb250ZW50LmNv/bS9pbWcvYi9SMjl2/WjJ4bC9BVnZYc0Vq/amVnR3JfMzZDYktR/UkRnTFZmdXA1bmN0/VDBrb2hyd1dFRnRU/aXVtaWx0QkpsakVt/NXdXdDNNakFPdndj/TlJKY2FRUThfNWhL/NGpGZWhGWVZhbkdN/ZGstazUtOGxnWGtH/aW9zQWFWUUo1YVN1/d0g4RWxTdXdrRjNR/ZlhWOGpRbExyVHAx/d09VRHVSNmRYRU92/MHlGUGVCTUlNRW0z/RmVjVkpsRnJMeXkz/QVc5YkU0Z3BoR1FN/Tzc3S3EvczE2MDAv/dHJhaW4tdGlja2V0/LWJkLWNvbS1waWN0/dXJlLTAxLndlYnA',
+    githubLink: 'https://github.com/Ashik116/MRT_Ticket',
   }
 ];
 
