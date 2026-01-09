@@ -7,6 +7,8 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import AIChatBot from './components/AIChatBot';
+// Fix: Added missing BIOGRAPHY import from constants.tsx
+import { EXPERIENCES, BIOGRAPHY } from './constants';
 
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -58,6 +60,21 @@ const CustomCursor = () => {
   );
 };
 
+const ExperienceItem: React.FC<{ exp: typeof EXPERIENCES[0] }> = ({ exp }) => (
+  <motion.div 
+    initial={{ opacity: 0, x: -20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    className="relative pl-8 pb-12 border-l-2 border-white/10 last:pb-0"
+  >
+    <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full flutter-gradient ring-4 ring-[#050507]" />
+    <span className="text-blue-400 font-bold text-xs uppercase tracking-widest mb-1 block">{exp.period}</span>
+    <h3 className="text-xl font-bold mb-1">{exp.role}</h3>
+    <p className="text-white/60 text-sm font-medium mb-4">{exp.company}</p>
+    <p className="text-slate-400 text-sm leading-relaxed max-w-2xl">{exp.description}</p>
+  </motion.div>
+);
+
 const App: React.FC = () => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -74,54 +91,43 @@ const App: React.FC = () => {
       <Navbar />
       
       <main>
-        <section id="hero">
-          <Hero />
-        </section>
+        <Hero />
 
-        <section id="about" className="scroll-mt-32">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="py-24 px-6 max-w-7xl mx-auto"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <motion.div whileHover={{ scale: 1.02 }} className="relative group">
-                <div className="w-full h-[450px] rounded-3xl overflow-hidden glass-card">
-                  <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" 
-                    alt="Ashikur Rahman" 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                  />
-                </div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 flutter-gradient rounded-full blur-3xl opacity-20 -z-10"></div>
-              </motion.div>
+        <section id="about" className="py-32 px-6 scroll-mt-32">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+             <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="w-full aspect-square max-w-md mx-auto rounded-3xl overflow-hidden glass-card relative z-10">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" 
+                  alt="Ashikur Rahman" 
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
+              <div className="absolute -top-10 -left-10 w-40 h-40 flutter-gradient blur-[100px] opacity-20" />
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-600 blur-[100px] opacity-20" />
+            </motion.div>
+
+            <div>
+              <h2 className="text-4xl font-bold mb-6">Building the <span className="text-gradient">Future of Mobile.</span></h2>
+              <p className="text-slate-400 text-lg leading-relaxed mb-10">
+                {BIOGRAPHY}
+              </p>
               
-              <div>
-                <h2 className="text-3xl font-bold mb-2">About <span className="text-gradient">Ashikur Rahman</span></h2>
-                <p className="text-blue-400 font-medium mb-6 uppercase tracking-widest text-sm">Professional Flutter Developer</p>
-                <p className="text-slate-400 text-lg leading-relaxed mb-8">
-                  I specialize in creating beautiful, cross-platform mobile applications using Flutter. 
-                  My goal is to build digital experiences that are not only functional but also a joy to use. 
-                  With a deep understanding of Dart and the Flutter ecosystem, I bring complex ideas to life.
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { val: '3+', label: 'Years Exp.' },
-                    { val: '20+', label: 'Projects' },
-                    { val: 'Fast', label: 'Performance' },
-                    { val: 'Clean', label: 'Codebase' }
-                  ].map((stat, i) => (
-                    <div key={i} className="p-4 glass-card rounded-2xl border border-white/5">
-                      <p className="text-xl font-bold text-gradient">{stat.val}</p>
-                      <p className="text-slate-500 text-xs uppercase font-semibold">{stat.label}</p>
-                    </div>
+              <div className="space-y-12">
+                <h3 className="text-2xl font-bold border-b border-white/5 pb-4">Experience</h3>
+                <div>
+                  {EXPERIENCES.map((exp, i) => (
+                    <ExperienceItem key={i} exp={exp} />
                   ))}
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         <Projects />
@@ -131,10 +137,10 @@ const App: React.FC = () => {
       
       <footer className="py-12 border-t border-white/5 text-center text-slate-500">
         <p className="text-sm">&copy; {new Date().getFullYear()} Ashikur Rahman. All rights reserved.</p>
-        <div className="mt-4 flex justify-center gap-6 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all">
-          <a href="https://github.com/ashik116" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Twitter</a>
+        <div className="mt-6 flex justify-center gap-6">
+          <a href="https://github.com/ashik116" target="_blank" className="hover:text-blue-400 transition-colors">GitHub</a>
+          <a href="#" className="hover:text-blue-400 transition-colors">LinkedIn</a>
+          <a href="#" className="hover:text-blue-400 transition-colors">Twitter</a>
         </div>
       </footer>
 

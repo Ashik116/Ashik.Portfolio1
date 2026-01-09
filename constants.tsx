@@ -1,52 +1,61 @@
 
-import { Project, Skill } from './types';
+import { Project, Skill, Experience } from './types';
 
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'Food Delivery App',
-    description: 'A comprehensive food ordering system with real-time tracking, cart management, and seamless UI/UX built with Flutter.',
-    tech: ['Flutter', 'Dart', 'Firebase', 'Clean UI'],
-    imageUrl: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=800',
-    link: 'https://github.com/ashik116'
+    title: 'FoodFlow - Delivery Ecosystem',
+    description: 'A complete food delivery solution with real-time tracking, dual app interface for customers and riders, and a robust admin dashboard.',
+    tech: ['Flutter', 'Firebase', 'Google Maps API', 'GetX'],
+    imageUrl: 'https://images.unsplash.com/photo-1526367790999-015070c13b7e?auto=format&fit=crop&q=80&w=800',
+    githubLink: 'https://github.com/ashik116',
+    demoLink: '#'
   },
   {
     id: '2',
-    title: 'Doctor Appointment App',
-    description: 'A healthcare solution allowing patients to book appointments, view doctor profiles, and manage medical history.',
-    tech: ['Flutter', 'Rest API', 'Provider', 'Shared Preferences'],
-    imageUrl: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800',
-    link: 'https://github.com/ashik116'
+    title: 'HealthSync - Doctor Booking',
+    description: 'Modern healthcare app featuring video consultations, automated appointment reminders, and digital prescription management.',
+    tech: ['Flutter', 'Rest API', 'Provider', 'Node.js'],
+    imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800',
+    githubLink: 'https://github.com/ashik116'
   },
   {
     id: '3',
-    title: 'Modern News App',
-    description: 'Real-time news application fetching latest headlines globally with category filtering and bookmarking features.',
-    tech: ['Flutter', 'News API', 'GetX', 'MVC'],
-    imageUrl: 'https://images.unsplash.com/photo-1504711432869-0df85248df99?auto=format&fit=crop&q=80&w=800',
-    link: 'https://github.com/ashik116'
-  },
-  {
-    id: '4',
-    title: 'E-Commerce Store',
-    description: 'Feature-rich shopping app with product categories, search functionality, and integrated payment gateway simulation.',
-    tech: ['Flutter', 'Firebase', 'State Management', 'Stripe'],
-    imageUrl: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800',
-    link: 'https://github.com/ashik116'
+    title: 'PulseNews AI',
+    description: 'AI-powered news aggregator that summarizes long articles and provides personalized feeds based on user reading habits.',
+    tech: ['Flutter', 'Dart', 'Gemini AI', 'Hive'],
+    imageUrl: 'https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&q=80&w=800',
+    githubLink: 'https://github.com/ashik116',
+    demoLink: '#'
   }
 ];
 
 export const SKILLS: Skill[] = [
-  { name: 'Flutter', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
-  { name: 'Dart', level: 92, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg' },
-  { name: 'Firebase', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
-  { name: 'Java', level: 75, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-  { name: 'Git & GitHub', level: 90, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-  { name: 'UI/UX Design', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' }
+  { name: 'Flutter', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg', category: 'Frontend' },
+  { name: 'Dart', level: 92, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg', category: 'Frontend' },
+  { name: 'Firebase', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg', category: 'Backend' },
+  { name: 'Node.js', level: 70, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', category: 'Backend' },
+  { name: 'Git & GitHub', level: 90, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', category: 'Tools' },
+  { name: 'Figma', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', category: 'Tools' }
+];
+
+export const EXPERIENCES: Experience[] = [
+  {
+    company: 'Tech Solutions Ltd.',
+    role: 'Senior Flutter Developer',
+    period: '2022 - Present',
+    description: 'Leading mobile development for high-traffic apps, mentoring junior devs, and optimizing app performance by 40%.'
+  },
+  {
+    company: 'Creative Apps Agency',
+    role: 'Mobile Developer',
+    period: '2020 - 2022',
+    description: 'Developed and launched over 10 cross-platform apps on Play Store and App Store using Flutter.'
+  }
 ];
 
 export const BIOGRAPHY = `
-I'm Ashikur Rahman, a dedicated Mobile Application Developer specializing in Flutter and Dart. 
-I have a strong passion for building high-quality, user-friendly mobile applications for both Android and iOS platforms. 
-I focus on writing clean, maintainable code and staying updated with the latest industry trends to deliver the best possible solutions.
+I'm Ashikur Rahman, a dedicated Senior Mobile Application Developer specializing in Flutter and Dart. 
+With over 3 years of professional experience, I build high-performance, user-centric apps.
+I am passionate about clean architecture (BLoC, Clean Architecture) and beautiful UI/UX.
 `;

@@ -12,7 +12,7 @@ const Projects: React.FC = () => {
         viewport={{ once: true }}
         className="mb-16"
       >
-        <h2 className="text-3xl font-bold mb-4">Featured <span className="text-gradient">Work</span></h2>
+        <h2 className="text-3xl font-bold mb-4">Featured <span className="text-gradient">Projects</span></h2>
         <div className="h-1.5 w-20 flutter-gradient rounded-full"></div>
       </motion.div>
       
@@ -32,16 +32,9 @@ const Projects: React.FC = () => {
                 alt={project.title} 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                <motion.a 
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  href={project.link} 
-                  target="_blank"
-                  className="px-6 py-2.5 bg-white text-black font-bold rounded-full text-sm shadow-xl"
-                >
-                  View Details
-                </motion.a>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center gap-4">
+                <a href={project.githubLink} target="_blank" className="px-6 py-2 bg-white text-black font-bold rounded-full text-sm hover:scale-105 transition-transform">GitHub Code</a>
+                {project.demoLink && <a href={project.demoLink} target="_blank" className="px-6 py-2 flutter-gradient text-white font-bold rounded-full text-sm hover:scale-105 transition-transform">Live Demo</a>}
               </div>
             </div>
             
@@ -54,7 +47,7 @@ const Projects: React.FC = () => {
                 ))}
               </div>
               <h3 className="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors">{project.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <p className="text-slate-400 text-sm leading-relaxed line-clamp-3">
                 {project.description}
               </p>
             </div>
