@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
       <div className="glass-card px-6 py-4 rounded-2xl flex justify-between items-center shadow-2xl shadow-black/50">
         <div className="flex items-center gap-2 cursor-pointer" onClick={(e: any) => handleScroll(e, 'hero')}>
           <div className="w-8 h-8 flutter-gradient rounded-lg flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/20">A</div>
-          <span className="font-bold text-xl tracking-tight">Ashik<span className="text-blue-500">Dev</span></span>
+          <span className="font-bold text-xl tracking-tight">Ashik <span className="text-blue-500">Rahman</span></span>
         </div>
 
         {/* Desktop Menu */}
