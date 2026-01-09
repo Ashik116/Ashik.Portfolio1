@@ -1,0 +1,8 @@
+{
+  "name": "Copy of Ashik's Flutter Portfolio",
+  "description": "Professional Flutter Developer portfolio for Ashikur Rahman, featuring interactive elements and AI assistant.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
