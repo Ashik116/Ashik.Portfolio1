@@ -9,28 +9,27 @@ export const NAME = 'Ashikur Rahman';
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'Safe Drive - Speed Tracking',
-    description: 'A safety-focused app that tracks vehicle speed in real-time and alerts users using Google Maps and geolocation APIs.',
-    tech: ['Flutter', 'Google Maps', 'Geolocator'],
-    imageUrl: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=800',
-    githubLink: 'https://github.com/Ashik116/Safe-Drive',
+    title: 'POS-Tolling System',
+    description: 'A professional cross-platform app built with Flutter and REST APIs. Features dynamic menu, real-time orders, and secure user authentication.',
+    tech: ['Flutter', 'REST API', 'GetX', 'Auth'],
+    imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800',
+    githubLink: 'https://github.com/Ashik116/Ashik.Portfolio1',
   },
   {
     id: '2',
-    title: 'E-Commerce UI Kit',
-    description: 'A comprehensive and performant e-commerce application UI with smooth animations and state management.',
-    tech: ['Flutter', 'Dart', 'GetX'],
-    imageUrl: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800',
-    githubLink: 'https://github.com/Ashik116/E-commerce-App'
+    title: 'RHD Toll',
+    description: 'Toll Report Monitoring mobile application built using Flutter and integrated with REST APIs for real-time monitoring and reporting.',
+    tech: ['Flutter', 'Dart', 'REST API', 'Charts'],
+    imageUrl: 'https://images.unsplash.com/photo-1590601448391-6863970632d4?auto=format&fit=crop&q=80&w=800',
+    githubLink: 'https://github.com/Ashik116/Ashik.Portfolio1'
   },
   {
     id: '3',
-    title: 'Official Portfolio',
-    description: 'My interactive portfolio built with Flutter Web and optimized for performance and accessibility.',
-    tech: ['Flutter Web', 'Animations', 'Rive'],
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
-    githubLink: 'https://github.com/Ashik116/Ashik116.github.io',
-    demoLink: 'https://ashik116.github.io/'
+    title: 'Logistics Tracking App',
+    description: 'Flutter mobile app for real-time tracking of delivery logistics with push notifications and map integration for route optimization.',
+    tech: ['Flutter', 'Google Maps', 'Push Notifications', 'Firebase'],
+    imageUrl: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=800',
+    githubLink: 'https://github.com/Ashik116/Ashik.Portfolio1',
   }
 ];
 
@@ -38,9 +37,9 @@ export const SKILLS: Skill[] = [
   { name: 'Flutter', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg', category: 'Frontend' },
   { name: 'Dart', level: 90, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg', category: 'Frontend' },
   { name: 'Firebase', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg', category: 'Backend' },
-  { name: 'REST API', level: 90, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', category: 'Backend' },
-  { name: 'Git & GitHub', level: 92, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', category: 'Tools' },
-  { name: 'App Store/Play Store', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg', category: 'Tools' }
+  { name: 'REST API', level: 92, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', category: 'Backend' },
+  { name: 'Git & GitHub', level: 90, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', category: 'Tools' },
+  { name: 'State Management', level: 94, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg', category: 'Frontend' }
 ];
 
 export const EXPERIENCES: Experience[] = [
@@ -72,7 +71,7 @@ export const EXPERIENCES: Experience[] = [
 
 export const BIOGRAPHY = `
 I am Ashikur Rahman, a professional Flutter Developer based in Dhaka. 
-With experience spanning from training to technical support and leading development teams, 
-I specialize in building high-quality, efficient, and user-friendly mobile applications.
-Currently, I am driving innovation as a Lead Application Developer at Digital Pylot.
+With experience spanning from lead development to technical training, 
+I specialize in building efficient, scalable, and user-centric mobile applications.
+Currently leading innovative projects at Digital Pylot.
 `;
