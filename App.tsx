@@ -140,7 +140,7 @@ const App: React.FC = () => {
       <footer className="py-12 border-t border-white/5 text-center text-slate-500">
         <p className="text-sm">&copy; {new Date().getFullYear()} {NAME}. All rights reserved.</p>
         <div className="mt-6 flex justify-center gap-6">
-          <a href="https://github.com/ashik116" target="_blank" className="hover:text-blue-400 transition-colors">GitHub</a>
+          <a href="https://github.com/Ashik116/Ashik.Portfolio1" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">GitHub</a>
           <a href="#" className="hover:text-blue-400 transition-colors">LinkedIn</a>
           <a href="#" className="hover:text-blue-400 transition-colors">Twitter</a>
         </div>

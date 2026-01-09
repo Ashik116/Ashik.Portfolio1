@@ -1,10 +1,11 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { PROFILE_IMAGE_URL, NAME } from '../constants';
 
 const Hero: React.FC = () => {
-  const containerVariants = {
+  // Explicitly typing variants to prevent transition property type widening
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -14,16 +15,19 @@ const Hero: React.FC = () => {
     },
   };
 
-  const itemVariants = {
+  // Explicitly typing variants and using 'as const' for ease to satisfy Easing type requirements
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.7, ease: "easeOut" } },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.7, ease: "easeOut" as const } },
   };
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center items-center px-6 pt-32 pb-20 text-center relative overflow-hidden">
-      {/* Dynamic Background Elements */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full -z-10 animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-600/10 blur-[150px] rounded-full -z-10"></div>
+    <section id="hero" className="min-h-screen flex flex-col justify-center items-center px-6 pt-32 pb-20 text-center relative overflow-hidden bg-[#050507]">
+      {/* Premium Background Ambiance */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl">
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] bg-cyan-500/10 blur-[100px] rounded-full"></div>
+      </div>
       
       <motion.div
         variants={containerVariants}
@@ -33,109 +37,109 @@ const Hero: React.FC = () => {
       >
         <motion.div 
           variants={itemVariants}
-          className="inline-flex items-center gap-2 px-4 py-2 mb-10 glass-card rounded-full border border-blue-500/30 text-blue-400 text-[11px] font-bold uppercase tracking-[0.25em] shadow-lg shadow-blue-500/10"
+          className="inline-flex items-center gap-2 px-5 py-2.5 mb-12 glass-card rounded-full border border-blue-500/20 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] shadow-2xl shadow-blue-500/5"
         >
-          <span className="relative flex h-2.5 w-2.5">
+          <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
           </span>
-          Currently Open for Projects
+          Available for New Opportunities
         </motion.div>
         
-        <motion.div variants={itemVariants} className="relative mb-12 inline-block">
-          {/* Animated Glow Behind Photo */}
-          <div className="absolute -inset-1 flutter-gradient rounded-full blur opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-          
+        <motion.div variants={itemVariants} className="relative mb-14 inline-block group">
+          {/* Outer Ring Animation */}
           <motion.div 
             animate={{ rotate: 360 }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute -inset-6 border border-dashed border-blue-500/20 rounded-full"
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" as const }}
+            className="absolute -inset-8 border border-dashed border-white/5 rounded-full pointer-events-none"
           />
           
-          <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full p-1.5 flutter-gradient shadow-2xl">
-            <div className="w-full h-full rounded-full overflow-hidden bg-[#050507] p-1">
+          {/* Glowing Aura */}
+          <div className="absolute -inset-2 flutter-gradient rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700 animate-pulse"></div>
+          
+          <div className="relative w-44 h-44 md:w-60 md:h-60 rounded-full p-1 flutter-gradient shadow-[0_0_50px_rgba(2,125,253,0.3)]">
+            <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0c] p-1 ring-4 ring-black/50">
               <img 
                 src={PROFILE_IMAGE_URL} 
                 alt={NAME} 
-                className="w-full h-full object-cover rounded-full transition-all duration-500 hover:scale-110"
+                className="w-full h-full object-cover rounded-full transition-transform duration-700 group-hover:scale-110"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300';
+                  console.log("Image load failed, using fallback");
+                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400';
                 }}
               />
             </div>
           </div>
 
+          {/* Floating Badges */}
           <motion.div 
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -right-6 top-2 glass-card p-2.5 rounded-2xl shadow-xl border-blue-500/20"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" as const }}
+            className="absolute -right-4 top-4 glass-card p-3 rounded-2xl shadow-2xl border border-white/10 hover:border-blue-500/40 transition-colors"
           >
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" className="w-9 h-9" alt="Flutter" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" className="w-8 h-8 md:w-10 md:h-10" alt="Flutter" />
           </motion.div>
           <motion.div 
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute -left-6 bottom-6 glass-card p-2.5 rounded-2xl shadow-xl border-blue-500/20"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" as const, delay: 1 }}
+            className="absolute -left-4 bottom-8 glass-card p-3 rounded-2xl shadow-2xl border border-white/10 hover:border-blue-500/40 transition-colors"
           >
-             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" className="w-9 h-9" alt="Dart" />
+             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" className="w-8 h-8 md:w-10 md:h-10" alt="Dart" />
           </motion.div>
         </motion.div>
 
         <motion.h1 
           variants={itemVariants}
-          className="text-6xl md:text-9xl font-extrabold mb-8 tracking-tighter leading-[0.95] max-w-5xl mx-auto"
+          className="text-5xl md:text-8xl lg:text-9xl font-black mb-8 tracking-tight leading-[0.9] max-w-5xl mx-auto"
         >
-          Design <span className="text-gradient">Fast.</span> <br /> 
-          Build <span className="text-gradient">Fluid.</span>
+          Building <span className="text-gradient">Fast.</span> <br /> 
+          Living <span className="text-gradient">Fluid.</span>
         </motion.h1>
         
         <motion.p 
           variants={itemVariants}
-          className="max-w-2xl mx-auto text-slate-400 text-lg md:text-2xl mb-14 leading-relaxed font-light px-4"
+          className="max-w-2xl mx-auto text-slate-400 text-lg md:text-xl mb-14 leading-relaxed font-medium px-4 opacity-80"
         >
-          {NAME} — Crafting pixel-perfect mobile experiences 
-          with the power of Flutter and Dart.
+          I'm {NAME}, a Senior Flutter Developer focused on crafting high-performance, 
+          pixel-perfect mobile applications that users love.
         </motion.p>
         
         <motion.div 
           variants={itemVariants}
-          className="flex flex-wrap gap-5 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-5 justify-center items-center"
         >
           <motion.a 
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
             href="#projects" 
-            className="flutter-gradient px-10 py-5 rounded-2xl text-white font-bold shadow-2xl shadow-blue-500/30 flex items-center gap-3 group"
+            className="w-full sm:w-auto flutter-gradient px-12 py-5 rounded-2xl text-white font-black shadow-[0_20px_40px_rgba(2,125,253,0.3)] flex items-center justify-center gap-3 group"
           >
-            View My Work
+            Explore Projects
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </motion.a>
           
           <motion.a 
-            whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.08)' }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
+            whileTap={{ scale: 0.98 }}
             href="#contact" 
-            className="px-10 py-5 rounded-2xl glass-card font-bold border border-white/10 flex items-center gap-3 transition-all backdrop-blur-xl"
+            className="w-full sm:w-auto px-12 py-5 rounded-2xl glass-card font-bold border border-white/10 flex items-center justify-center gap-3 transition-all backdrop-blur-2xl"
           >
-            Start a Project
+            Let's Talk
           </motion.a>
         </motion.div>
       </motion.div>
 
+      {/* Scroll Indicator */}
       <motion.div 
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-30"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-20"
       >
-        <div className="w-6 h-10 rounded-full border-2 border-slate-500 flex justify-center p-1">
-          <motion.div 
-            animate={{ y: [0, 16, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 bg-blue-500 rounded-full"
-          />
-        </div>
+        <span className="text-[10px] font-bold uppercase tracking-widest">Scroll</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-blue-500 to-transparent"></div>
       </motion.div>
     </section>
   );
