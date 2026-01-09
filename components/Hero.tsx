@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
           variants={itemVariants}
           className="max-w-2xl mx-auto text-slate-400 text-lg md:text-xl mb-14 leading-relaxed font-medium px-4 opacity-80"
         >
-          I'm {NAME}, a Senior Flutter Developer focused on crafting high-performance, 
+          I'm {NAME}, a Lead Flutter Developer focused on crafting high-performance, 
           pixel-perfect mobile applications.
         </motion.p>
         
@@ -126,10 +126,12 @@ const Hero: React.FC = () => {
           <motion.a 
             whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
             whileTap={{ scale: 0.98 }}
-            href="#contact" 
+            href="https://digitalpylot.io/team/md-ashikur-rahman/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-5 rounded-2xl glass-card font-bold border border-white/10 flex items-center justify-center gap-3 transition-all backdrop-blur-2xl"
           >
-            Let's Talk
+            Present Job
           </motion.a>
         </motion.div>
       </motion.div>

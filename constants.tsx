@@ -51,15 +51,21 @@ export const SKILLS: Skill[] = [
 
 export const EXPERIENCES: Experience[] = [
   {
+    company: 'Digital Pylot',
+    role: 'Lead Application Developer',
+    period: 'October 2025 - Present',
+    description: 'Leading mobile application development team, architecting scalable solutions and mentoring junior developers.'
+  },
+  {
     company: 'Regnum Resource Ltd.',
-    role: 'Software Engineer',
-    period: 'February 2022 - Present',
+    role: 'Mobile Application Developer',
+    period: 'February 2022 - September 2025',
     description: 'Responsible for leading cross-functional teams to build robust Flutter applications. Designed scalable architectures and optimized performance for RHD Toll Collection apps.'
   },
   {
     company: 'Dot Com System Ltd. with ICT Division',
     role: 'Trainer (Flutter Development)',
-    period: 'September 2021 - January 2023',
+    period: 'September 2021 - January 2022',
     description: 'Taught beginner-level students how to build mobile applications using Flutter and Dart. Covered UI design, state management, and API integration.'
   },
   {
@@ -71,7 +77,7 @@ export const EXPERIENCES: Experience[] = [
 ];
 
 export const BIOGRAPHY = `
-I am MD. Ashikur Rahman, a Senior Software Engineer specializing in Flutter. 
-With a B.Sc. in Computer Science from the University of Asia Pacific, I have dedicated 
-my career to building high-performance mobile applications and mentoring the next generation of developers.
+I am MD. Ashikur Rahman, a Lead Flutter Developer with experience building scalable, high-performance mobile applications for Android and iOS. 
+I enjoy transforming complex requirements into clean, maintainable code and intuitive user experiences. 
+My work focuses on performance, reliability, and real-world usability. 
 `;
