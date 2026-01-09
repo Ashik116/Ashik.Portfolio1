@@ -7,7 +7,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import AIChatBot from './components/AIChatBot';
-import { EXPERIENCES, BIOGRAPHY, PROFILE_IMAGE_URL, NAME } from './constants';
+import { EXPERIENCES, BIOGRAPHY, PROFILE_IMAGE_URL, NAME, LINKEDIN_URL, GITHUB_URL } from './constants';
 
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -140,8 +140,8 @@ const App: React.FC = () => {
       <footer className="py-12 border-t border-white/5 text-center text-slate-500">
         <p className="text-sm">&copy; {new Date().getFullYear()} {NAME}. All rights reserved.</p>
         <div className="mt-6 flex justify-center gap-6">
-          <a href="https://github.com/Ashik116/Ashik.Portfolio1" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">GitHub</a>
-          <a href="#" className="hover:text-blue-400 transition-colors">LinkedIn</a>
+          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">GitHub</a>
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">LinkedIn</a>
           <a href="#" className="hover:text-blue-400 transition-colors">Twitter</a>
         </div>
       </footer>

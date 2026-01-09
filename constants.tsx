@@ -6,6 +6,9 @@ export const PROFILE_IMAGE_URL = 'https://scontent.fdac198-1.fna.fbcdn.net/v/t39
 
 export const NAME = 'Ashikur Rahman';
 
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/ashikra';
+export const GITHUB_URL = 'https://github.com/Ashik116/Ashik.Portfolio1';
+
 export const PROJECTS: Project[] = [
   {
     id: '1',
