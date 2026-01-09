@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { PROFILE_IMAGE_URL, NAME } from '../constants';
 
 const Hero: React.FC = () => {
   const containerVariants = {
@@ -42,33 +43,41 @@ const Hero: React.FC = () => {
         </motion.div>
         
         <motion.div variants={itemVariants} className="relative mb-12 inline-block">
+          {/* Animated Glow Behind Photo */}
+          <div className="absolute -inset-1 flutter-gradient rounded-full blur opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+          
           <motion.div 
             animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -inset-4 border border-dashed border-blue-500/20 rounded-full"
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute -inset-6 border border-dashed border-blue-500/20 rounded-full"
           />
-          <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full p-1 flutter-gradient">
+          
+          <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full p-1.5 flutter-gradient shadow-2xl">
             <div className="w-full h-full rounded-full overflow-hidden bg-[#050507] p-1">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300" 
-                alt="Ashik" 
-                className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500"
+                src={PROFILE_IMAGE_URL} 
+                alt={NAME} 
+                className="w-full h-full object-cover rounded-full transition-all duration-500 hover:scale-110"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300';
+                }}
               />
             </div>
           </div>
+
           <motion.div 
-            animate={{ y: [0, -10, 0] }}
+            animate={{ y: [0, -12, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -right-4 top-0 glass-card p-2 rounded-xl shadow-xl border-blue-500/20"
+            className="absolute -right-6 top-2 glass-card p-2.5 rounded-2xl shadow-xl border-blue-500/20"
           >
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" className="w-8 h-8" alt="Flutter" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" className="w-9 h-9" alt="Flutter" />
           </motion.div>
           <motion.div 
-            animate={{ y: [0, 10, 0] }}
+            animate={{ y: [0, 12, 0] }}
             transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute -left-4 bottom-4 glass-card p-2 rounded-xl shadow-xl border-blue-500/20"
+            className="absolute -left-6 bottom-6 glass-card p-2.5 rounded-2xl shadow-xl border-blue-500/20"
           >
-             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" className="w-8 h-8" alt="Dart" />
+             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" className="w-9 h-9" alt="Dart" />
           </motion.div>
         </motion.div>
 
@@ -84,7 +93,7 @@ const Hero: React.FC = () => {
           variants={itemVariants}
           className="max-w-2xl mx-auto text-slate-400 text-lg md:text-2xl mb-14 leading-relaxed font-light px-4"
         >
-          Ashikur Rahman — Crafting pixel-perfect mobile experiences 
+          {NAME} — Crafting pixel-perfect mobile experiences 
           with the power of Flutter and Dart.
         </motion.p>
         

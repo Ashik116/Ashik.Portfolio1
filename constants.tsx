@@ -1,6 +1,11 @@
 
 import { Project, Skill, Experience } from './types';
 
+// ছবিটির নাম 'ashik.jpeg' হিসেবে সেট করা হয়েছে। 
+// আপনার GitHub রিপোজিটরিতে ছবিটি এই নামেই আপলোড করবেন।
+export const PROFILE_IMAGE_URL = './ashik.jpeg'; 
+export const NAME = 'Ashikur Rahman';
+
 export const PROJECTS: Project[] = [
   {
     id: '1',

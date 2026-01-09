@@ -7,8 +7,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import AIChatBot from './components/AIChatBot';
-// Fix: Added missing BIOGRAPHY import from constants.tsx
-import { EXPERIENCES, BIOGRAPHY } from './constants';
+import { EXPERIENCES, BIOGRAPHY, PROFILE_IMAGE_URL, NAME } from './constants';
 
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -101,11 +100,14 @@ const App: React.FC = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="w-full aspect-square max-w-md mx-auto rounded-3xl overflow-hidden glass-card relative z-10">
+              <div className="w-full aspect-square max-w-md mx-auto rounded-3xl overflow-hidden glass-card relative z-10 border border-white/10 p-2">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" 
-                  alt="Ashikur Rahman" 
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  src={PROFILE_IMAGE_URL} 
+                  alt={NAME} 
+                  className="w-full h-full object-cover rounded-2xl transition-all duration-700 hover:scale-105"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800';
+                  }}
                 />
               </div>
               <div className="absolute -top-10 -left-10 w-40 h-40 flutter-gradient blur-[100px] opacity-20" />
@@ -136,7 +138,7 @@ const App: React.FC = () => {
       </main>
       
       <footer className="py-12 border-t border-white/5 text-center text-slate-500">
-        <p className="text-sm">&copy; {new Date().getFullYear()} Ashikur Rahman. All rights reserved.</p>
+        <p className="text-sm">&copy; {new Date().getFullYear()} {NAME}. All rights reserved.</p>
         <div className="mt-6 flex justify-center gap-6">
           <a href="https://github.com/ashik116" target="_blank" className="hover:text-blue-400 transition-colors">GitHub</a>
           <a href="#" className="hover:text-blue-400 transition-colors">LinkedIn</a>
