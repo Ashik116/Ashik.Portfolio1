@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { EMAIL } from '../constants';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -34,7 +35,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <p className="text-sm text-slate-500 uppercase tracking-widest font-bold">Email</p>
-                <p className="font-medium text-slate-200">contact@ashik.dev</p>
+                <p className="font-medium text-slate-200">{EMAIL}</p>
               </div>
             </div>
             
@@ -47,7 +48,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <p className="text-sm text-slate-500 uppercase tracking-widest font-bold">Location</p>
-                <p className="font-medium text-slate-200">Dhaka, Bangladesh (Remote Available)</p>
+                <p className="font-medium text-slate-200">Dhaka, Bangladesh</p>
               </div>
             </div>
           </div>
@@ -63,7 +64,7 @@ const Contact: React.FC = () => {
                 type="text" 
                 value={formData.name}
                 onChange={e => setFormData({...formData, name: e.target.value})}
-                placeholder="Ashikur Rahman" 
+                placeholder="Full Name" 
                 className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-slate-200"
               />
             </div>
@@ -74,7 +75,7 @@ const Contact: React.FC = () => {
                 type="email" 
                 value={formData.email}
                 onChange={e => setFormData({...formData, email: e.target.value})}
-                placeholder="ashik@example.com" 
+                placeholder="email@example.com" 
                 className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-slate-200"
               />
             </div>
@@ -86,7 +87,7 @@ const Contact: React.FC = () => {
               rows={5}
               value={formData.message}
               onChange={e => setFormData({...formData, message: e.target.value})}
-              placeholder="Tell me about your amazing app idea..." 
+              placeholder="Your message here..." 
               className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none text-slate-200"
             />
           </div>

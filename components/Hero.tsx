@@ -1,10 +1,9 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { PROFILE_IMAGE_URL, NAME } from '../constants';
+import { PROFILE_IMAGE_URL, NAME, RESUME_URL } from '../constants';
 
 const Hero: React.FC = () => {
-  // Explicitly typing variants to prevent transition property type widening
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -15,7 +14,6 @@ const Hero: React.FC = () => {
     },
   };
 
-  // Explicitly typing variants and using 'as const' for ease to satisfy Easing type requirements
   const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.7, ease: "easeOut" as const } },
@@ -23,7 +21,6 @@ const Hero: React.FC = () => {
 
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center items-center px-6 pt-32 pb-20 text-center relative overflow-hidden bg-[#050507]">
-      {/* Premium Background Ambiance */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[120px] rounded-full"></div>
         <div className="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] bg-cyan-500/10 blur-[100px] rounded-full"></div>
@@ -47,14 +44,12 @@ const Hero: React.FC = () => {
         </motion.div>
         
         <motion.div variants={itemVariants} className="relative mb-14 inline-block group">
-          {/* Outer Ring Animation */}
           <motion.div 
             animate={{ rotate: 360 }}
             transition={{ duration: 30, repeat: Infinity, ease: "linear" as const }}
             className="absolute -inset-8 border border-dashed border-white/5 rounded-full pointer-events-none"
           />
           
-          {/* Glowing Aura */}
           <div className="absolute -inset-2 flutter-gradient rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700 animate-pulse"></div>
           
           <div className="relative w-44 h-44 md:w-60 md:h-60 rounded-full p-1 flutter-gradient shadow-[0_0_50px_rgba(2,125,253,0.3)]">
@@ -64,14 +59,12 @@ const Hero: React.FC = () => {
                 alt={NAME} 
                 className="w-full h-full object-cover rounded-full transition-transform duration-700 group-hover:scale-110"
                 onError={(e) => {
-                  console.log("Image load failed, using fallback");
                   (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400';
                 }}
               />
             </div>
           </div>
 
-          {/* Floating Badges */}
           <motion.div 
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" as const }}
@@ -101,7 +94,7 @@ const Hero: React.FC = () => {
           className="max-w-2xl mx-auto text-slate-400 text-lg md:text-xl mb-14 leading-relaxed font-medium px-4 opacity-80"
         >
           I'm {NAME}, a Senior Flutter Developer focused on crafting high-performance, 
-          pixel-perfect mobile applications that users love.
+          pixel-perfect mobile applications.
         </motion.p>
         
         <motion.div 
@@ -112,26 +105,35 @@ const Hero: React.FC = () => {
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
             href="#projects" 
-            className="w-full sm:w-auto flutter-gradient px-12 py-5 rounded-2xl text-white font-black shadow-[0_20px_40px_rgba(2,125,253,0.3)] flex items-center justify-center gap-3 group"
+            className="w-full sm:w-auto flutter-gradient px-8 py-5 rounded-2xl text-white font-black shadow-[0_20px_40px_rgba(2,125,253,0.3)] flex items-center justify-center gap-3 group"
           >
             Explore Projects
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
           </motion.a>
           
           <motion.a 
             whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
             whileTap={{ scale: 0.98 }}
+            href={RESUME_URL}
+            download
+            className="w-full sm:w-auto px-8 py-5 rounded-2xl glass-card font-bold border border-blue-500/30 flex items-center justify-center gap-3 transition-all backdrop-blur-2xl text-blue-400"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download CV
+          </motion.a>
+
+          <motion.a 
+            whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
+            whileTap={{ scale: 0.98 }}
             href="#contact" 
-            className="w-full sm:w-auto px-12 py-5 rounded-2xl glass-card font-bold border border-white/10 flex items-center justify-center gap-3 transition-all backdrop-blur-2xl"
+            className="w-full sm:w-auto px-8 py-5 rounded-2xl glass-card font-bold border border-white/10 flex items-center justify-center gap-3 transition-all backdrop-blur-2xl"
           >
             Let's Talk
           </motion.a>
         </motion.div>
       </motion.div>
 
-      {/* Scroll Indicator */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
